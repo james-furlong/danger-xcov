@@ -36,7 +36,8 @@ xcov.report(
    scheme: 'EasyPeasy',
    workspace: 'Example/EasyPeasy.xcworkspace',
    exclude_targets: 'Demo.app',
-   minimum_coverage_percentage: 90
+   minimum_coverage_percentage: 90,
+   minimum_file_coverage_percentage: 10
 )
 ```
 
@@ -55,7 +56,8 @@ report = xcov.produce_report(
   scheme: 'EasyPeasy',
   workspace: 'Example/EasyPeasy.xcworkspace',
   exclude_targets: 'Demo.app',
-  minimum_coverage_percentage: 90
+  minimum_coverage_percentage: 90,
+  minimum_file_coverage_percentage: 10
 )
 
 # Do some custom filtering with the report here
@@ -66,3 +68,8 @@ xcov.output_report(report)
 
 ## License
 This project is licensed under the terms of the MIT license. See the LICENSE file.
+
+
+## Forked changes
+
+We have updated this library to add the `minimum_file_coverage_percentage` to allow a minimum per-file coverage percentage 
