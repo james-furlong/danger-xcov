@@ -36,7 +36,7 @@ module Danger
       # Run xcov to produce a processed report
       report = produce_report(*args)
       # Output the processed report
-      output_report(report, *args)
+      output_report(report)
     end
   
     # Produces and processes a report for use in the report method
@@ -75,7 +75,7 @@ module Danger
     end
 
     # Outputs a processed report with Danger
-    def output_report(report, *args)
+    def output_report(report)
       # Create markdown
       report_markdown = report.markdown_value
 
@@ -89,7 +89,7 @@ module Danger
       end
       
       # Notify failure if minimum file coverage hasn't been reached
-      file_threshold = args.config[:minimum_file_coverage_percentage].to_i
+      file_threshold = Xcov.config[:minimum_file_coverage_percentage].to_i
       if !file_threshold.nil?
         report.target.each do |target|
           target.file.each do |file|
